@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday 💙</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-pacifico {
+      font-family: 'Pacifico', cursive;
+    }
+
+
+    /* =========================
+       OPENING
+    ========================= */
+
+    #opening {
+      transition:
+        opacity .8s ease,
+        visibility .8s ease;
+    }
+
+    #opening.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+
+    /* =========================
+       GIFT
+    ========================= */
+
+    .gift-wrapper {
+      position: relative;
+      width: 170px;
+      height: 180px;
+      margin: auto;
+      perspective: 800px;
+    }
+
+    .gift-box {
+      position: absolute;
+      bottom: 0;
+      left: 5px;
+
+      width: 160px;
+      height: 125px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #60a5fa,
+          #3b82f6,
+          #2563eb
+        );
+
+      box-shadow:
+        0 20px 40px rgba(37,99,235,.35);
+
+      overflow: hidden;
+    }
+
+    .gift-box::before {
+      content: "";
+
+      position: absolute;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 24px;
+      height: 100%;
+
+      background:
+        rgba(255,255,255,.28);
+    }
+
+    .gift-box::after {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 100%;
+      height: 20px;
+
+      background:
+        rgba(255,255,255,.18);
+    }
+
+    .gift-lid {
+      position: absolute;
+
+      z-index: 5;
+
+      top: 28px;
+      left: 0;
+
+      width: 170px;
+      height: 45px;
+
+      border-radius: 9px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #93c5fd,
+          #60a5fa,
+          #3b82f6
+        );
+
+      box-shadow:
+        0 8px 20px rgba(37,99,235,.3);
+
+      transform-origin: bottom center;
+
+      transition:
+        transform
+        .8s
+        cubic-bezier(.68,-.55,.27,1.55);
+    }
+
+    .gift-lid::before {
+      content: "";
+
+      position: absolute;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 24px;
+      height: 100%;
+
+      background:
+        rgba(255,255,255,.3);
+    }
+
+    .gift-bow {
+      position: absolute;
+
+      z-index: 6;
+
+      top: 0;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      width: 65px;
+      height: 45px;
+    }
+
+    .bow-left,
+    .bow-right {
+      position: absolute;
+
+      width: 40px;
+      height: 28px;
+
+      top: 4px;
+
+      background: #bfdbfe;
+
+      border-radius:
+        50% 50% 50% 10px;
+
+      box-shadow:
+        0 5px 10px rgba(30,64,175,.2);
+    }
+
+    .bow-left {
+      left: 0;
+      transform: rotate(25deg);
+    }
+
+    .bow-right {
+      right: 0;
+      transform: rotate(-25deg);
+    }
+
+    .bow-center {
+      position: absolute;
+
+      z-index: 2;
+
+      left: 50%;
+      top: 9px;
+
+      width: 24px;
+      height: 24px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius: 50%;
+
+      background: #dbeafe;
+    }
+
+    .gift-wrapper.open .gift-lid {
+      transform:
+        translateY(-70px)
+        rotate(-12deg);
+    }
+
+    .gift-wrapper.open .gift-box {
+      animation:
+        giftShake .5s ease;
+    }
+
+    @keyframes giftShake {
+
+      0%,100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform:
+          translateX(-5px)
+          rotate(-2deg);
+      }
+
+      50% {
+        transform:
+          translateX(5px)
+          rotate(2deg);
+      }
+
+      75% {
+        transform:
+          translateX(-3px)
+          rotate(-1deg);
+      }
+
+    }
+
+    .gift-light {
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(147,197,253,.4),
+          transparent 65%
+        );
+
+      filter: blur(5px);
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       HEART
+    ========================= */
+
+    .floating-heart {
+      position: fixed;
+
+      pointer-events: none;
+
+      animation:
+        floatUp 4s ease-out forwards;
+
+      z-index: 100;
+    }
+
+    @keyframes floatUp {
+
+      0% {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+      100% {
+        opacity: 0;
+
+        transform:
+          translateY(-180px)
+          scale(1.5);
+      }
+
+    }
+
+
+    /* =========================
+       SPARKLE
+    ========================= */
+
+    .sparkle {
+      position: fixed;
+
+      pointer-events: none;
+
+      z-index: 100;
+
+      animation:
+        sparkleAnim 1s ease-out forwards;
+    }
+
+    @keyframes sparkleAnim {
+
+      0% {
+        opacity: 1;
+
+        transform:
+          scale(0)
+          rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+
+        transform:
+          scale(1.2)
+          rotate(90deg);
+      }
+
+      100% {
+        opacity: 0;
+
+        transform:
+          scale(0)
+          rotate(180deg);
+      }
+
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .glass-card {
+
+      background:
+        rgba(255,255,255,.75);
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      border:
+        1px solid
+        rgba(255,255,255,.7);
+    }
+
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity .3s ease,
+        visibility .3s ease;
+    }
+
+    .modal.show {
+
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+
+      transform:
+        translateY(20px)
+        scale(.95);
+
+      transition:
+        transform .3s ease;
+    }
+
+    .modal.show .modal-content {
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+
+    /* =========================
+       BUTTON ANIMATION
+    ========================= */
+
+    .animated-btn {
+
+      position: relative;
+
+      overflow: hidden;
+
+      transition:
+        transform .15s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+
+      -webkit-tap-highlight-color:
+        transparent;
+
+      touch-action:
+        manipulation;
+    }
+
+    .animated-btn:active {
+
+      transform:
+        scale(.92);
+
+      filter:
+        brightness(1.08);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(96,165,250,.15),
+
+        0 0 25px
+        rgba(59,130,246,.55);
+    }
+
+    .animated-btn::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 20px;
+      height: 20px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.45);
+
+      left:
+        var(--ripple-x,50%);
+
+      top:
+        var(--ripple-y,50%);
+
+      transform:
+        translate(-50%,-50%)
+        scale(0);
+
+      opacity: 0;
+
+      pointer-events: none;
+    }
+
+    .animated-btn.ripple::after {
+
+      animation:
+        rippleEffect .55s ease-out;
+    }
+
+    @keyframes rippleEffect {
+
+      0% {
+
+        transform:
+          translate(-50%,-50%)
+          scale(0);
+
+        opacity: .65;
+      }
+
+      100% {
+
+        transform:
+          translate(-50%,-50%)
+          scale(15);
+
+        opacity: 0;
+      }
+
+    }
+
+    @media (hover:hover) {
+
+      .animated-btn:hover {
+
+        transform:
+          translateY(-2px);
+
+        box-shadow:
+          0 8px 25px
+          rgba(37,99,235,.25);
+      }
+
+    }
+
+    .animated-btn .btn-icon {
+
+      display: inline-block;
+
+      transition:
+        transform .25s ease;
+    }
+
+    .animated-btn:active .btn-icon {
+
+      transform:
+        scale(.75)
+        rotate(-8deg);
+    }
+
+    .button-pop {
+
+      animation:
+        buttonPop .35s ease;
+    }
+
+    @keyframes buttonPop {
+
+      0% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(.88);
+      }
+
+      75% {
+        transform: scale(1.06);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    .music-playing {
+
+      animation:
+        musicPulse 1.2s infinite;
+    }
+
+    @keyframes musicPulse {
+
+      0%,100% {
+
+        box-shadow:
+          0 0 0 0
+          rgba(59,130,246,.4);
+      }
+
+      50% {
+
+        box-shadow:
+          0 0 0 10px
+          rgba(59,130,246,0);
+      }
+
+    }
+
+
+    /* =========================
+       MEMORY SLIDER
+    ========================= */
+
+    .memory-slider {
+
+      scrollbar-width: none;
+
+      -ms-overflow-style: none;
+
+      scroll-behavior:
+        smooth;
+    }
+
+    .memory-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .memory-slide {
+
+      flex:
+        0 0 82%;
+
+      scroll-snap-align:
+        center;
+    }
+
+
+    /* =========================
+       BOTTOM NAV
+    ========================= */
+
+    .bottom-nav {
+
+      padding-bottom:
+        max(
+          12px,
+          env(safe-area-inset-bottom)
+        );
+    }
+
+  </style>
+
+</head>
+
+
+<body class="bg-blue-50 text-slate-700">
+
+
+  <!-- =====================================================
+       OPENING
+  ====================================================== -->
+
+  <div
+    id="opening"
+    class="fixed inset-0 z-[999] flex items-center justify-center bg-gradient-to-br from-blue-500 via-sky-500 to-blue-700"
+  >
+
+    <div class="absolute inset-0 overflow-hidden">
+
+      <div
+        class="absolute w-72 h-72 bg-white/10 rounded-full blur-3xl -top-20 -left-20"
+      ></div>
+
+      <div
+        class="absolute w-72 h-72 bg-cyan-300/20 rounded-full blur-3xl -bottom-20 -right-20"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="relative z-10 text-center px-6"
+    >
+
+      <div
+        class="text-white text-sm tracking-[.25em] uppercase mb-8 opacity-90"
+      >
+        A Little Gift For You
+      </div>
+
+
+      <div
+        class="gift-wrapper"
+        id="giftWrapper"
+      >
+
+        <div class="gift-light"></div>
+
+
+        <div class="gift-bow">
+
+          <div class="bow-left"></div>
+
+          <div class="bow-right"></div>
+
+          <div class="bow-center"></div>
+
+        </div>
+
+
+        <div class="gift-lid"></div>
+
+        <div class="gift-box"></div>
+
+      </div>
+
+
+      <h1
+        class="text-white font-pacifico text-3xl mt-10"
+      >
+        Happy Birthday 💙
+      </h1>
+
+
+      <p
+        class="text-blue-100 mt-3 text-sm"
+      >
+        Ada cecuatu buat cayanggg...
+      </p>
+
+
+      <button
+        id="openGiftBtn"
+        onclick="openGiftBox()"
+        class="mt-8 bg-white text-blue-600 px-7 py-3 rounded-full font-semibold shadow-xl"
+      >
+
+        <span class="btn-icon">
+          🎁
+        </span>
+
+        <span class="ml-2">
+          Buka Hadiah
+        </span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main
+    id="mainContent"
+    class="hidden pb-28"
+  >
+
+
+    <!-- =================================================
+         HERO
+    ================================================== -->
+
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center px-5 py-16 bg-gradient-to-b from-blue-100 via-sky-50 to-blue-50"
+    >
+
+      <div
+        class="text-center max-w-md"
+      >
+
+        <!-- FOTO DI ATAS HAPPY BIRTHDAY -->
+    <div class="flex justify-center mb-6">
+        <div
+    class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-br from-blue-300 via-blue-500 to-sky-400 shadow-xl"
+         >
+    <img
+      src="assets/her.jpg"
+      alt="Foto"
+      class="w-full h-full rounded-full object-cover border-4 border-white"
+         >
+  </div>
+</div>
+
+
+        <div
+          class="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-2 rounded-full text-blue-600 text-xs font-semibold shadow-sm mb-6"
+        >
+          💙 HAPPY BIRTHDAY 💙
+        </div>
+
+
+        <h1
+          class="font-pacifico text-4xl sm:text-5xl text-blue-600 leading-tight"
+        >
+          Happy Birthday
+        </h1>
+
+
+        <h2
+          class="text-3xl font-bold text-slate-800 mt-2"
+        >
+          Cayangnya Bayiii 💙
+        </h2>
+
+
+        <p
+          class="text-slate-500 mt-5 leading-relaxed"
+        >
+          Hari ini adalah hari spesialnya cayangg
+          yang juga sangat spesial buat bayii.
+        </p>
+
+
+        <div
+          class="mt-8 flex justify-center gap-3"
+        >
+
+          <button
+            onclick="scrollToSection('message')"
+            class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg"
+          >
+            Baca Pesannya 💌
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MESSAGE
+    ================================================== -->
+
+    <section
+      id="message"
+      class="px-5 py-20"
+    >
+
+      <div
+        class="max-w-md mx-auto"
+      >
+
+        <div
+          class="text-center mb-8"
+        >
+
+          <span
+            class="text-blue-500 text-sm font-semibold"
+          >
+            FOR YOU 💙
+          </span>
+
+          <h2
+            class="text-3xl font-bold text-slate-800 mt-2"
+          >
+            Ada Pesan Buwat Kotyunn
+          </h2>
+
+        </div>
+
+
+        <div
+          class="glass-card rounded-3xl p-7 shadow-xl"
+        >
+
+          <div
+            class="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-2xl mb-5"
+          >
+            💌
+          </div>
+
+
+          <p
+            class="leading-8 text-slate-600"
+          >
+            celamat ulang tahun yaa cayangg
+            cemoga dengan bertambahnya umur,
+            kita celalu bica buwat jadi yebihh baikk
+            aamiiiinnnn
+          </p>
+
+
+          <p
+            class="leading-8 text-slate-600 mt-4"
+          >
+            timaacii cudaa jadii cayangnya bayii
+            yang baiikk banyett. cmogaa kita bicaa
+            celalu caling ceyita, ketawa, dan melewati
+            banyak momen indah lainnya bersamaa yaa cayangg
+          </p>
+
+
+          <p
+            class="font-pacifico text-xl text-blue-600 mt-7"
+          >
+            Happy Birthday 💙
+          </p>
+
+        </div>
+
+
+        <button
+          onclick="openLetter()"
+          class="w-full mt-6 bg-blue-600 text-white py-4 rounded-2xl font-semibold shadow-lg"
+        >
+          💌 Buka Suratnyaa
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MEMORIES
+    ================================================== -->
+
+    <section
+      id="memories"
+      class="px-5 py-20 bg-white"
+    >
+
+      <div
+        class="max-w-md mx-auto"
+      >
+
+        <div
+          class="text-center mb-8"
+        >
+
+          <span
+            class="text-blue-500 text-sm font-semibold"
+          >
+            OUR MEMORIES 📸
+          </span>
+
+          <h2
+            class="text-3xl font-bold text-slate-800 mt-2"
+          >
+            Kenangan Kita
+          </h2>
+
+          <p
+            class="text-slate-500 text-sm mt-2"
+          >
+            Geser untuk melihat kenangan lainnya 💙
+          </p>
+
+        </div>
+
+
+        <div
+          class="relative"
+        >
+
+          <button
+            onclick="slideMemory(-1)"
+            class="absolute z-20 left-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-blue-600"
+          >
+            ←
+          </button>
+
+
+          <div
+            id="memorySlider"
+            class="memory-slider flex gap-4 overflow-x-auto snap-x snap-mandatory px-8 pb-3"
+          >
+
+
+            <!-- PHOTO 1 -->
+
+            <div
+              class="memory-slide"
+            >
+
+              <div
+                class="rounded-3xl overflow-hidden shadow-xl bg-white"
+              >
+
+                <img
+                  src="assets/foto-1.jpg"
+                  class="w-full aspect-[4/5] object-cover"
+                  alt="Memory 1"
+                >
+
+                <div
+                  class="p-5"
+                >
+
+                  <p
+                    class="font-semibold text-slate-800"
+                  >
+                    Memory pertama 💙
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-500 mt-1"
+                  >
+                    ingat ndaa cayangg, pas kitaa photoboothh
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- VIDEO 1 -->
+
+            <div
+              class="memory-slide"
+            >
+
+              <div
+                class="rounded-3xl overflow-hidden shadow-xl bg-white"
+              >
+
+                <video
+                  src="assets/video-1.mp4"
+                  class="w-full aspect-[4/5] object-cover"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  oncontextmenu="return false"
+                ></video>
+
+                <div
+                  class="p-5"
+                >
+
+                  <p
+                    class="font-semibold text-slate-800"
+                  >
+                    Memory kedua 🎥
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-500 mt-1"
+                  >
+                    eheheheee cayangg nempel nempel kee bayii
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PHOTO 2 -->
+
+            <div
+              class="memory-slide"
+            >
+
+              <div
+                class="rounded-3xl overflow-hidden shadow-xl bg-white"
+              >
+
+                <img
+                  src="assets/foto-2.jpg"
+                  class="w-full aspect-[4/5] object-cover"
+                  alt="Memory 3"
+                >
+
+                <div
+                  class="p-5"
+                >
+
+                  <p
+                    class="font-semibold text-slate-800"
+                  >
+                    Memory ketiga 📸
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-500 mt-1"
+                  >
+                    pas kitaa di tamann cayangg, nantikk kecinik yagik yaaa cayangg
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PHOTO 3 -->
+
+            <div
+              class="memory-slide"
+            >
+
+              <div
+                class="rounded-3xl overflow-hidden shadow-xl bg-white"
+              >
+
+                <video
+                  src="assets/video-2.mp4"
+                  class="w-full aspect-[4/5] object-cover"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  oncontextmenu="return false"
+                ></video>
+
+                <div
+                  class="p-5"
+                >
+
+                  <p
+                    class="font-semibold text-slate-800"
+                  >
+                    Memory keempat 📸
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-500 mt-1"
+                  >
+                    ehehehehe ootd duyuu ndaa ciiii wkwkwkk
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- PHOTO 4 -->
+
+            <div
+              class="memory-slide"
+            >
+
+              <div
+                class="rounded-3xl overflow-hidden shadow-xl bg-white"
+              >
+
+                <img
+                  src="assets/foto-3.jpg"
+                  class="w-full aspect-[4/5] object-cover"
+                  alt="Memory 5"
+                >
+
+                <div
+                  class="p-5"
+                >
+
+                  <p
+                    class="font-semibold text-slate-800"
+                  >
+                    Memory kelima 💙
+                  </p>
+
+                  <p
+                    class="text-sm text-slate-500 mt-1"
+                  >
+                    becok pas ketemuu kitaa banyak banyakinn potoo yaa cayangg
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <button
+            onclick="slideMemory(1)"
+            class="absolute z-20 right-1 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-blue-600"
+          >
+            →
+          </button>
+
+        </div>
+
+
+        <!-- DOTS -->
+
+        <div
+          id="memoryDots"
+          class="flex justify-center gap-2 mt-5"
+        >
+
+          <span
+            class="memory-dot w-2 h-2 rounded-full bg-blue-500 transition-all duration-300"
+          ></span>
+
+          <span
+            class="memory-dot w-2 h-2 rounded-full bg-blue-200 transition-all duration-300"
+          ></span>
+
+          <span
+            class="memory-dot w-2 h-2 rounded-full bg-blue-200 transition-all duration-300"
+          ></span>
+
+          <span
+            class="memory-dot w-2 h-2 rounded-full bg-blue-200 transition-all duration-300"
+          ></span>
+
+          <span
+            class="memory-dot w-2 h-2 rounded-full bg-blue-200 transition-all duration-300"
+          ></span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SURPRISE
+    ================================================== -->
+
+    <section
+      id="surprise"
+      class="px-5 py-20"
+    >
+
+      <div
+        class="max-w-md mx-auto text-center"
+      >
+
+        <div
+          class="text-6xl mb-6"
+        >
+          🎁
+        </div>
+
+
+        <span
+          class="text-blue-500 text-sm font-semibold"
+        >
+          ONE MORE THING
+        </span>
+
+
+        <h2
+          class="text-3xl font-bold text-slate-800 mt-2"
+        >
+          Ada Kejutan 💙
+        </h2>
+
+
+        <p
+          class="text-slate-500 mt-4 leading-relaxed"
+        >
+          ulang tahunnyaa cayang hayus speciall
+          pokoknyaa, cmogaa cayangg cuka dengan hadiah bayii
+        </p>
+
+
+        <button
+          onclick="openSurprise()"
+          class="mt-7 bg-blue-600 text-white px-7 py-4 rounded-2xl font-semibold shadow-xl"
+        >
+          🎁 Buka Kejutan
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MUSIC
+    ================================================== -->
+
+    <section
+      id="musicSection"
+      class="px-5 py-20 bg-white"
+    >
+
+      <div
+        class="max-w-md mx-auto"
+      >
+
+        <div
+          class="glass-card rounded-3xl p-7 shadow-xl text-center"
+        >
+
+          <div
+            id="musicIcon"
+            class="w-20 h-20 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-4xl"
+          >
+            🎵
+          </div>
+
+
+          <h2
+            class="text-2xl font-bold text-slate-800 mt-5"
+          >
+            Lagu Buwat Cayangg
+          </h2>
+
+
+          <p
+            class="text-slate-500 text-sm mt-2"
+          >
+            Backsound buwat cayang cambil bacaa ehehee 💙
+          </p>
+
+
+          <button
+            id="musicBtn"
+            onclick="toggleMusic()"
+            class="mt-6 bg-blue-600 text-white px-7 py-3 rounded-full font-semibold shadow-lg"
+          >
+
+            <span class="btn-icon">
+              ▶️
+            </span>
+
+            <span class="ml-2">
+              Play Music
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CLOSING
+    ================================================== -->
+
+    <section
+      id="closing"
+      class="px-5 py-20 bg-gradient-to-b from-blue-50 to-blue-100"
+    >
+
+      <div
+        class="max-w-md mx-auto text-center"
+      >
+
+        <div
+          class="text-5xl mb-5"
+        >
+          💙
+        </div>
+
+
+        <h2
+          class="font-pacifico text-3xl text-blue-600"
+        >
+          Once Again...
+        </h2>
+
+
+        <h3
+          class="text-3xl font-bold text-slate-800 mt-3"
+        >
+          Happy Birthday!
+        </h3>
+
+
+        <p
+          class="text-slate-500 mt-5 leading-relaxed"
+        >
+          cmogaa cemuwa harapan baik kitaa
+          satu per satu jadi terwujudd yaa cayangg.
+        </p>
+
+
+        <p
+          class="font-pacifico text-xl text-blue-600 mt-8"
+        >
+          With Love 💙
+        </p>
+
+        <a
+  href="https://wa.me/6282326883167?text=Terima%20kasih%20sayang%20%F0%9F%92%99"
+  target="_blank"
+  class="inline-flex items-center gap-2 mt-5 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg active:scale-95 transition"
+>
+  💬 Bayes Bayi di WhatsApp
+</a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       LETTER MODAL
+  ====================================================== -->
+
+  <div
+    id="letterModal"
+    class="modal fixed inset-0 z-[500] flex items-center justify-center p-5 bg-slate-900/50 backdrop-blur-sm"
+  >
+
+    <div
+      class="modal-content max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden"
+    >
+
+      <div
+        class="p-7"
+      >
+
+        <div
+          class="flex items-center justify-between"
+        >
+
+          <h3
+            class="text-xl font-bold text-slate-800"
+          >
+            Surat Untukmu 💌
+          </h3>
+
+
+          <button
+            onclick="closeLetter()"
+            class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center"
+          >
+            ✕
+          </button>
+
+        </div>
+
+
+        <div
+          class="mt-6 space-y-4 text-slate-600 leading-7"
+        >
+
+          <p>
+            Halaww cayanggg 💙
+          </p>
+
+          <p>
+            celamat ulang tahun yaaaa
+            cmogaa hari ini menjadi calah catu
+            hari yang paaaying indah buwat cayangg
+          </p>
+
+          <p>
+            timaacii kayena cudaa hadir
+            dan membahagiakan sertaa mewarnai
+            hiduppnya bayii
+          </p>
+
+          <p>
+            bayi doainn cayangg celalu sehatt,
+            bahagia, dan celalu di berikan kemudahan
+            olehh Allah di cegayaa uyusann cayangg
+          </p>
+
+          <p>
+            Jangan pernah berentii dan bosenn jadi
+            cayangg nyaa bayii yakk cayangg
+          </p>
+
+          <p
+            class="font-pacifico text-blue-600 text-lg"
+          >
+            Happy Birthday, cayanggg 💙
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SURPRISE MODAL
+  ====================================================== -->
+
+  <div
+    id="surpriseModal"
+    class="modal fixed inset-0 z-[500] flex items-center justify-center p-5 bg-slate-900/50 backdrop-blur-sm"
+  >
+
+    <div
+      class="modal-content max-w-md w-full bg-white rounded-3xl shadow-2xl overflow-hidden"
+    >
+
+      <div
+        class="p-8 text-center"
+      >
+
+        <div
+          class="text-6xl"
+        >
+          🎉
+        </div>
+
+
+        <h3
+          class="text-3xl font-bold text-blue-600 mt-5"
+        >
+          Surprise! 💙
+        </h3>
+
+
+        <p
+          class="text-slate-600 leading-7 mt-5"
+        >
+          Hadiah terbaik yang bica bayii kacii ke cayangg
+          adalah doa cmogaa cayangg celalu bahagia cama bayii,
+          sehat teyuss, dan bica mencapai cemuwaa impian kitaa.
+          cinikk cinikk cayangg bayi peyuqqq
+          yaa.. ini cayangg, calah catuk projek bayii eheheheee
+          gimanaa? cayangg cukaa kann?? pastii donggg eheheheqq
+          maap yaa cayangg, buwat cemuwaa kecalahann bayii,
+          pernaa hancuyin kepercayaan cayangg, buwat cayangg
+          kecewaa, bayii menyesall cayanggg
+          teyuss di web ini ndabicaa pakee emottt huhuhuuuuu
+          jadii anggapp aja ada emotnyaa yaa cintahh eheheheee
+          oceyy cintahh, yanjuttinn duyuukk yaa...
+        </p>
+
+
+        <p
+          class="font-pacifico text-blue-600 text-xl mt-6"
+        >
+          I Love You 💙
+        </p>
+
+
+        <button
+          onclick="closeSurprise()"
+          class="mt-7 bg-blue-600 text-white px-7 py-3 rounded-full font-semibold"
+        >
+          Tutup 💙
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       MUSIC
+  ====================================================== -->
+
+  <audio
+    id="music"
+    src="assets/music.mp3"
+    loop
+    preload="auto"
+  ></audio>
+
+
+  <!-- =====================================================
+       BOTTOM NAV
+  ====================================================== -->
+
+  <nav
+    class="bottom-nav fixed bottom-0 left-0 right-0 z-[200] bg-white/90 backdrop-blur-xl border-t border-blue-100 shadow-[0_-5px_25px_rgba(37,99,235,.08)]"
+  >
+
+    <div
+      class="max-w-md mx-auto px-5 py-3 flex justify-around"
+    >
+
+      <button
+        onclick="scrollToSection('home')"
+        class="flex flex-col items-center gap-1 text-blue-600"
+      >
+
+        <span class="text-xl">
+          🏠
+        </span>
+
+        <span class="text-[10px] font-semibold">
+          Home
+        </span>
+
+      </button>
+
+
+      <button
+        onclick="scrollToSection('message')"
+        class="flex flex-col items-center gap-1 text-slate-500"
+      >
+
+        <span class="text-xl">
+          💌
+        </span>
+
+        <span class="text-[10px] font-semibold">
+          Message
+        </span>
+
+      </button>
+
+
+      <button
+        onclick="scrollToSection('memories')"
+        class="flex flex-col items-center gap-1 text-slate-500"
+      >
+
+        <span class="text-xl">
+          📸
+        </span>
+
+        <span class="text-[10px] font-semibold">
+          Memories
+        </span>
+
+      </button>
+
+
+      <button
+        onclick="scrollToSection('surprise')"
+        class="flex flex-col items-center gap-1 text-slate-500"
+      >
+
+        <span class="text-xl">
+          🎁
+        </span>
+
+        <span class="text-[10px] font-semibold">
+          Surprise
+        </span>
+
+      </button>
+
+
+      <button
+        onclick="scrollToSection('musicSection')"
+        class="flex flex-col items-center gap-1 text-slate-500"
+      >
+
+        <span class="text-xl">
+          🎵
+        </span>
+
+        <span class="text-[10px] font-semibold">
+          Music
+        </span>
+
+      </button>
+
+    </div>
+
+  </nav>
+
+
+  <script>
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    const music =
+      document.getElementById("music");
+
+    const opening =
+      document.getElementById("opening");
+
+    const mainContent =
+      document.getElementById("mainContent");
+
+    const giftWrapper =
+      document.querySelector(".gift-wrapper");
+
+    const openGiftBtn =
+      document.getElementById("openGiftBtn");
+
+
+    /* =========================
+       OPEN GIFT
+    ========================= */
+
+    function openGiftBox() {
+
+      music.volume = .65;
+
+      music.play()
+        .then(() => {
+
+          updateMusicButton();
+
+        })
+        .catch(() => {
+
+          console.log(
+            "Autoplay music diblokir browser."
+          );
+
+        });
+
+
+      giftWrapper.classList.add("open");
+
+
+      openGiftBtn.disabled = true;
+
+
+      openGiftBtn.innerHTML = `
+        <span class="btn-icon">
+          ✨
+        </span>
+
+        <span class="ml-2">
+          Membuka...
+        </span>
+      `;
+
+
+      createSparkles();
+
+      createHearts();
+
+
+      setTimeout(() => {
+
+        opening.classList.add("hide");
+
+      },1300);
+
+
+      setTimeout(() => {
+
+        opening.style.display = "none";
+
+        mainContent.classList.remove("hidden");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "instant"
+        });
+
+      },2000);
+
+    }
+
+
+    /* =========================
+       MUSIC
+       FIXED
+    ========================= */
+
+    function toggleMusic() {
+
+      if (music.paused) {
+
+        music.play()
+          .then(() => {
+
+            updateMusicButton();
+
+          })
+          .catch((error) => {
+
+            console.log(
+              "Gagal memutar musik:",
+              error
+            );
+
+          });
+
+      } else {
+
+        music.pause();
+
+        updateMusicButton();
+
+      }
+
+    }
+
+
+    function updateMusicButton() {
+
+      const musicBtn =
+        document.getElementById("musicBtn");
+
+      const musicIcon =
+        document.getElementById("musicIcon");
+
+
+      if (!musicBtn) return;
+
+
+      if (music.paused) {
+
+        musicBtn.innerHTML = `
+          <span class="btn-icon">
+            ▶️
+          </span>
+
+          <span class="ml-2">
+            Play Music
+          </span>
+        `;
+
+        musicIcon.classList.remove(
+          "music-playing"
+        );
+
+      } else {
+
+        musicBtn.innerHTML = `
+          <span class="btn-icon">
+            ⏸️
+          </span>
+
+          <span class="ml-2">
+            Pause Music
+          </span>
+        `;
+
+        musicIcon.classList.add(
+          "music-playing"
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       HEARTS
+    ========================= */
+
+    function createHearts() {
+
+      const hearts = [
+        "💙",
+        "💙",
+        "💙",
+        "🩵",
+        "✨",
+        "💙",
+        "🩵",
+        "✨"
+      ];
+
+
+      hearts.forEach(
+        (heart,index) => {
+
+          setTimeout(() => {
+
+            const el =
+              document.createElement("div");
+
+            el.className =
+              "floating-heart";
+
+            el.textContent =
+              heart;
+
+            el.style.left =
+              Math.random() * 100 + "vw";
+
+            el.style.bottom =
+              "25vh";
+
+            el.style.fontSize =
+              (
+                18 +
+                Math.random() * 20
+              ) + "px";
+
+
+            document.body
+              .appendChild(el);
+
+
+            setTimeout(() => {
+
+              el.remove();
+
+            },4000);
+
+          },index * 150);
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       SPARKLES
+    ========================= */
+
+    function createSparkles() {
+
+      for (
+        let i = 0;
+        i < 25;
+        i++
+      ) {
+
+        setTimeout(() => {
+
+          const sparkle =
+            document.createElement("div");
+
+          sparkle.className =
+            "sparkle";
+
+          sparkle.textContent =
+            "✦";
+
+          sparkle.style.left =
+            Math.random() * 100 + "vw";
+
+          sparkle.style.top =
+            Math.random() * 100 + "vh";
+
+          sparkle.style.fontSize =
+            (
+              10 +
+              Math.random() * 20
+            ) + "px";
+
+          sparkle.style.color =
+            "white";
+
+
+          document.body
+            .appendChild(sparkle);
+
+
+          setTimeout(() => {
+
+            sparkle.remove();
+
+          },1000);
+
+        },i * 60);
+
+      }
+
+    }
+
+
+    /* =========================
+       LETTER
+    ========================= */
+
+    function openLetter() {
+
+      document
+        .getElementById("letterModal")
+        .classList.add("show");
+
+    }
+
+
+    function closeLetter() {
+
+      document
+        .getElementById("letterModal")
+        .classList.remove("show");
+
+    }
+
+
+    /* =========================
+       SURPRISE
+    ========================= */
+
+    function openSurprise() {
+
+      document
+        .getElementById("surpriseModal")
+        .classList.add("show");
+
+      createHearts();
+
+      createSparkles();
+
+    }
+
+
+    function closeSurprise() {
+
+      document
+        .getElementById("surpriseModal")
+        .classList.remove("show");
+
+    }
+
+
+    /* =========================
+       SCROLL
+    ========================= */
+
+    function scrollToSection(id) {
+
+      const section =
+        document.getElementById(id);
+
+      if (!section) return;
+
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+
+    /* =========================
+       MODAL OUTSIDE CLICK
+    ========================= */
+
+    document
+      .getElementById("letterModal")
+      .addEventListener(
+        "click",
+        function(e) {
+
+          if (e.target === this) {
+            closeLetter();
+          }
+
+        }
+      );
+
+
+    document
+      .getElementById("surpriseModal")
+      .addEventListener(
+        "click",
+        function(e) {
+
+          if (e.target === this) {
+            closeSurprise();
+          }
+
+        }
+      );
+
+
+    /* =========================
+       BUTTON ANIMATION
+    ========================= */
+
+    document
+      .querySelectorAll("button")
+      .forEach(button => {
+
+        button.classList.add(
+          "animated-btn"
+        );
+
+
+        button.addEventListener(
+          "click",
+          function(e) {
+
+            const rect =
+              this.getBoundingClientRect();
+
+
+            const x =
+              e.clientX -
+              rect.left;
+
+            const y =
+              e.clientY -
+              rect.top;
+
+
+            this.style.setProperty(
+              "--ripple-x",
+              `${x}px`
+            );
+
+            this.style.setProperty(
+              "--ripple-y",
+              `${y}px`
+            );
+
+
+            this.classList.remove(
+              "ripple"
+            );
+
+            void this.offsetWidth;
+
+            this.classList.add(
+              "ripple"
+            );
+
+
+            this.classList.remove(
+              "button-pop"
+            );
+
+            void this.offsetWidth;
+
+            this.classList.add(
+              "button-pop"
+            );
+
+
+            setTimeout(() => {
+
+              this.classList.remove(
+                "ripple"
+              );
+
+              this.classList.remove(
+                "button-pop"
+              );
+
+            },600);
+
+          }
+        );
+
+      });
+
+
+    /* =========================
+       MEMORY SLIDER
+    ========================= */
+
+    const memorySlider =
+      document.getElementById(
+        "memorySlider"
+      );
+
+    const memorySlides =
+      document.querySelectorAll(
+        ".memory-slide"
+      );
+
+    const memoryDots =
+      document.querySelectorAll(
+        ".memory-dot"
+      );
+
+
+    let currentMemory = 0;
+
+
+    function updateMemoryDots() {
+
+      memoryDots.forEach(
+        (dot,index) => {
+
+          if (
+            index ===
+            currentMemory
+          ) {
+
+            dot.classList.remove(
+              "bg-blue-200"
+            );
+
+            dot.classList.add(
+              "bg-blue-500"
+            );
+
+            dot.style.transform =
+              "scale(1.4)";
+
+          } else {
+
+            dot.classList.remove(
+              "bg-blue-500"
+            );
+
+            dot.classList.add(
+              "bg-blue-200"
+            );
+
+            dot.style.transform =
+              "scale(1)";
+
+          }
+
+        }
+      );
+
+    }
+
+
+    function slideMemory(direction) {
+
+      currentMemory +=
+        direction;
+
+
+      if (currentMemory < 0) {
+
+        currentMemory =
+          memorySlides.length - 1;
+
+      }
+
+
+      if (
+        currentMemory >=
+        memorySlides.length
+      ) {
+
+        currentMemory = 0;
+
+      }
+
+
+      const slide =
+        memorySlides[
+          currentMemory
+        ];
+
+
+      memorySlider.scrollTo({
+
+        left:
+          slide.offsetLeft -
+          memorySlider.offsetLeft,
+
+        behavior:
+          "smooth"
+
+      });
+
+
+      updateMemoryDots();
+
+    }
+
+
+    /* =========================
+       MANUAL SWIPE
+    ========================= */
+
+    let scrollTimeout;
+
+
+    memorySlider.addEventListener(
+      "scroll",
+      () => {
+
+        clearTimeout(
+          scrollTimeout
+        );
+
+
+        scrollTimeout =
+          setTimeout(() => {
+
+            let closestIndex = 0;
+
+            let closestDistance =
+              Infinity;
+
+
+            memorySlides.forEach(
+              (slide,index) => {
+
+                const distance =
+                  Math.abs(
+                    slide.offsetLeft -
+                    memorySlider.scrollLeft
+                  );
+
+
+                if (
+                  distance <
+                  closestDistance
+                ) {
+
+                  closestDistance =
+                    distance;
+
+                  closestIndex =
+                    index;
+
+                }
+
+              }
+            );
+
+
+            currentMemory =
+              closestIndex;
+
+            updateMemoryDots();
+
+          },100);
+
+      }
+    );
+
+
+    updateMemoryDots();
+
+  </script>
+
+</body>
+</html>
